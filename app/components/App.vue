@@ -22,6 +22,12 @@ const POKE_API_BASE_URL =  "https://pokeapi.co/api/v2";
 
 export default {
 
+  data() {
+    return {
+      pokedex: []
+    }
+  },
+
   async mounted() {
     const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=150');
     this.pokedex = data.results.map((item) => {
@@ -33,12 +39,6 @@ export default {
       }
     });
 
-  },
-
-  data() {
-    return {
-      pokedex: []
-    }
   },
 
   methods: {
